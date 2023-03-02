@@ -1,22 +1,25 @@
 package com.alex.movila.ui.movie_home
 
-import android.app.ActionBar
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.alex.movila.R
-import com.alex.movila.ui.adapters.MovieAdapterD1
-import com.alex.movila.ui.adapters.MovieAdapterD2
-import com.alex.movila.ui.adapters.ViewPagerMovieMainAdapter
+import com.alex.movila.ui.movie_home.adapters.MovieAdapterD1
+import com.alex.movila.ui.movie_home.adapters.MovieAdapterD2
+import com.alex.movila.ui.movie_home.adapters.ViewPagerMovieMainAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import me.relex.circleindicator.CircleIndicator3
 
-
+@AndroidEntryPoint
 class MovieHomeFragment : Fragment() {
+    private val viewModel by viewModels<MovieHomeViewModel>()
+    private val movieAdaper: MovieAdapterD1 = MovieAdapterD1 {  }
 
     private var imagesListUpcomingMovies = mutableListOf<Int>()
     private var imagesListPopularMovies = mutableListOf<Int>()
@@ -27,16 +30,13 @@ class MovieHomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        subscribeMovies()
         return inflater.inflate(R.layout.fragment_movie_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //actionBar?.setDisplayShowTitleEnabled(false)
-        //actionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.movie_example2))
-
-
+        viewModel.getMovies()
 
         postToList()
         initVPUpcomingMovies()
@@ -44,6 +44,7 @@ class MovieHomeFragment : Fragment() {
         initRvTopRatedMovies()
 
     }
+
 
     private fun addMovieToList(image:Int){
         imagesListUpcomingMovies.add(image)
@@ -69,9 +70,7 @@ class MovieHomeFragment : Fragment() {
     private fun initRvPopularMovies(){
         val rvPopularMovies = view?.findViewById<RecyclerView>(R.id.rvPopularMovies)
         rvPopularMovies?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val adapter = MovieAdapterD1(imagesListPopularMovies)
-        rvPopularMovies?.adapter = adapter
-
+        rvPopularMovies?.adapter = movieAdaper
     }
 
     private fun initRvTopRatedMovies(){
@@ -80,6 +79,12 @@ class MovieHomeFragment : Fragment() {
         val adapter = MovieAdapterD2(imagesListTopRatedMovies)
         rvTopRatedMovies?.adapter = adapter
 
+    }
+
+    private fun subscribeMovies(){
+        viewModel.movies.observe(viewLifecycleOwner){
+            movieAdaper.submit(it)
+        }
     }
 
 }

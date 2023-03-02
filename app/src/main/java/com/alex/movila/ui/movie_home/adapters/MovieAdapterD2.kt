@@ -1,4 +1,4 @@
-package com.alex.movila.ui.adapters
+package com.alex.movila.ui.movie_home.adapters
 
 import android.view.LayoutInflater
 import android.view.View

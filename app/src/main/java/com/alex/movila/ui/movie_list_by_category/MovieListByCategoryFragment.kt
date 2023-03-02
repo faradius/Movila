@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alex.movila.R
-import com.alex.movila.ui.adapters.MovieAdapterD1
+import com.alex.movila.ui.movie_home.adapters.MovieAdapterD1
 
 
 class MovieListByCategoryFragment : Fragment() {
@@ -41,8 +41,8 @@ class MovieListByCategoryFragment : Fragment() {
     private fun initRvCategoryMovies(){
         val rvByCategoriesMovies = view?.findViewById<RecyclerView>(R.id.rvCategoryListMovies)
         rvByCategoriesMovies?.layoutManager = GridLayoutManager(context,3)
-        val adapter = MovieAdapterD1(imagesListCategoryMovies)
-        rvByCategoriesMovies?.adapter = adapter
+//        val adapter = MovieAdapterD1(imagesListCategoryMovies)
+//        rvByCategoriesMovies?.adapter = adapter
 
     }
 }

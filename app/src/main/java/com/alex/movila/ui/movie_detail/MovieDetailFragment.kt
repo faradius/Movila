@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alex.movila.R
-import com.alex.movila.ui.adapters.MovieAdapterD1
+import com.alex.movila.ui.movie_home.adapters.MovieAdapterD1
 
 
 class MovieDetailFragment : Fragment() {
@@ -42,8 +42,8 @@ class MovieDetailFragment : Fragment() {
     private fun initRvRecommendatiosMovies(){
         val rvRecommendationsMovies = view?.findViewById<RecyclerView>(R.id.rvRecommendations)
         rvRecommendationsMovies?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val adapter = MovieAdapterD1(imagesListRecommendationsMovies)
-        rvRecommendationsMovies?.adapter = adapter
+//        val adapter = MovieAdapterD1(imagesListRecommendationsMovies)
+//        rvRecommendationsMovies?.adapter = adapter
 
     }
 }
