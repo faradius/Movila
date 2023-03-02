@@ -5,5 +5,5 @@ import com.alex.movila.data.network.model.Movie
 import com.alex.movila.data.network.model.MovieList
 
 interface MovieRepository {
-    suspend fun getMovies(): MovieResult<List<Movie>>
+    suspend fun getPopularMovies(): MovieResult<List<Movie>>
 }

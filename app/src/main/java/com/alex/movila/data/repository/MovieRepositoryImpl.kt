@@ -7,7 +7,7 @@ import com.alex.movila.data.network.model.Movie
 import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor(private val remoteDataSource:MovieDataSourceRemote): MovieRepository {
-    override suspend fun getMovies(): MovieResult<List<Movie>> {
-        return remoteDataSource.getUpComingMovies()
+    override suspend fun getPopularMovies(): MovieResult<List<Movie>> {
+        return remoteDataSource.getPopularMovies()
     }
 }

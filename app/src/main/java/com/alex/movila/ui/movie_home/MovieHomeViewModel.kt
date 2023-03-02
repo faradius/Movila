@@ -22,7 +22,7 @@ class MovieHomeViewModel @Inject constructor(private val repository: MovieReposi
 
     fun getMovies(){
         viewModelScope.launch {
-            val result = repository.getMovies()
+            val result = repository.getPopularMovies()
             when(result){
                 is MovieResult.Success -> {
                     _movies.value = result.data!!
