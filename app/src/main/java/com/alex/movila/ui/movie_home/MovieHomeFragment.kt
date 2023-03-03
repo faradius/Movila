@@ -24,13 +24,13 @@ class MovieHomeFragment : Fragment() {
     private var imagesListUpcomingMovies = mutableListOf<Int>()
     private var imagesListPopularMovies = mutableListOf<Int>()
     private var imagesListTopRatedMovies = mutableListOf<Int>()
-    private var actionBar:androidx.appcompat.app.ActionBar? = null
+//    private var actionBar:androidx.appcompat.app.ActionBar? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        subscribeMovies()
+        subscribePopularMovies()
         return inflater.inflate(R.layout.fragment_movie_home, container, false)
     }
 
@@ -81,9 +81,9 @@ class MovieHomeFragment : Fragment() {
 
     }
 
-    private fun subscribeMovies(){
-        viewModel.movies.observe(viewLifecycleOwner){
-            movieAdaper.submit(it)
+    private fun subscribePopularMovies(){
+        viewModel.movies.observe(viewLifecycleOwner){ movies ->
+            movieAdaper.submit(movies)
         }
     }
 

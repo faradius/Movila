@@ -9,18 +9,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.alex.movila.R
 import com.alex.movila.data.network.model.Movie
 import com.alex.movila.data.network.model.MovieList
+import com.alex.movila.domain.model.PopularMoviesUI
 import com.alex.movila.utils.toMovieUrl
 import com.bumptech.glide.Glide
 
 class MovieAdapterD1 (private val onClickListener: (String)->Unit):RecyclerView.Adapter<MovieAdapterD1.MovieHolder>() {
 
-    private var movies: List<Movie> = mutableListOf()
+    private var movies: List<PopularMoviesUI> = mutableListOf()
     inner class MovieHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         val itemImage: ImageView = itemView.findViewById(R.id.ivMovieRecyclerViewD1)
 
-        fun bind(movie: Movie, onClickListener: (String) -> Unit){
+        fun bind(movie: PopularMoviesUI, onClickListener: (String) -> Unit){
             Glide.with(itemView.context)
-                .load(movie.poster_path.toMovieUrl())
+                .load(movie.imageUrl)
                 .into(itemImage)
             itemImage.setOnClickListener {
                 onClickListener(" ")
@@ -28,7 +29,7 @@ class MovieAdapterD1 (private val onClickListener: (String)->Unit):RecyclerView.
         }
     }
 
-    fun submit(imageList: List<Movie>){
+    fun submit(imageList: List<PopularMoviesUI>){
         movies = imageList
         notifyDataSetChanged()
     }
