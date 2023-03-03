@@ -1,7 +1,7 @@
 package com.alex.movila.domain.use_cases
 
 import com.alex.movila.core.MovieResult
-import com.alex.movila.data.network.model.Movie
+import com.alex.movila.data.network.model.popular_movies.Movie
 import com.alex.movila.data.repository.MovieRepository
 import javax.inject.Inject
 

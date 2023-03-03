@@ -4,13 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.alex.movila.R
-import com.alex.movila.data.network.model.Movie
-import com.alex.movila.data.network.model.MovieList
 import com.alex.movila.domain.model.PopularMoviesUI
-import com.alex.movila.utils.toMovieUrl
 import com.bumptech.glide.Glide
 
 class MovieAdapterD1 (private val onClickListener: (String)->Unit):RecyclerView.Adapter<MovieAdapterD1.MovieHolder>() {
@@ -24,7 +20,7 @@ class MovieAdapterD1 (private val onClickListener: (String)->Unit):RecyclerView.
                 .load(movie.imageUrl)
                 .into(itemImage)
             itemImage.setOnClickListener {
-                onClickListener(" ")
+                onClickListener(movie.id)
             }
         }
     }

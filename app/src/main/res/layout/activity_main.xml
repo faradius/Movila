@@ -7,11 +7,13 @@
     tools:context=".ui.MainActivity"
     android:background="@color/black">
 
-    <fragment
-        android:id="@+id/fragmentoContainer"
-        android:name="com.alex.movila.ui.movie_home.view.MovieHomeFragment"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/movie_nav_graph"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

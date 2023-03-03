@@ -1,4 +1,4 @@
-package com.alex.movila.data.network.model
+package com.alex.movila.data.network.model.popular_movies
 
 data class Movie(
     val adult: Boolean,
