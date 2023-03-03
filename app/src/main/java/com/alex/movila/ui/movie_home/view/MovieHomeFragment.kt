@@ -1,4 +1,4 @@
-package com.alex.movila.ui.movie_home
+package com.alex.movila.ui.movie_home.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.alex.movila.R
+import com.alex.movila.ui.movie_home.viewmodel.MovieHomeViewModel
 import com.alex.movila.ui.movie_home.adapters.MovieAdapterD1
 import com.alex.movila.ui.movie_home.adapters.MovieAdapterD2
 import com.alex.movila.ui.movie_home.adapters.ViewPagerMovieMainAdapter

@@ -9,7 +9,7 @@
         android:id="@+id/containerViews"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.movie_home.MovieHomeFragment"
+        tools:context=".ui.movie_home.view.MovieHomeFragment"
         android:background="@color/black">
 
         <androidx.viewpager2.widget.ViewPager2
